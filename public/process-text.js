@@ -5,8 +5,11 @@ var currentIndex = Math.floor(possibleTexts[textIndex].length / 4);
 
 var id = getParameterByName('id');
 
+
 var box = document.getElementById("text")
-box.value = possibleTexts[textIndex].slice(0, currentIndex);
+if (id){
+  box.value = possibleTexts[textIndex].slice(0, currentIndex);
+}
 var prevValue = box.value;
 box.addEventListener('input', handleKeyDown)
 
@@ -19,6 +22,7 @@ var disabled = false;
 var apiURL = "https://us-central1-psychic-df2b4.cloudfunctions.net/acceptPhrase";
 
 function handleKeyDown() {
+  if (!id) return;
   var e = {type: "", key: ""};
   var currLength = box.value.length;
   var prevLength = prevValue.length;
