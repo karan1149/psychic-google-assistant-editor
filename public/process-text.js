@@ -90,7 +90,6 @@ function handleKeyDown() {
 
 function sendPhrase(phraseObject){
   phraseObject.id = id;
-  console.log("adding id", id);
   console.log("sending", phraseObject);
   // construct an HTTP request
   var xhr = new XMLHttpRequest();
